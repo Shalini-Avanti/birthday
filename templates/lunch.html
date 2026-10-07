@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Birthday Question ❤️</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body class="lunch-page">
+
+    <div class="floating-hearts">
+
+        <span>♥</span>
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+        <span>♥</span>
+        <span>♡</span>
+
+    </div>
+
+
+    {% if confirmed %}
+
+    <!-- Confirmation screen -->
+
+    <div class="confirmation">
+
+        <div class="confirmation-card">
+
+            <div class="big-heart">
+                ♥
+            </div>
+
+            <p class="small-heading">
+                It's officially a date...
+            </p>
+
+            <h1>
+                See you soon,
+                <span>birthday boy ❤️</span>
+            </h1>
+
+            <div class="date-details">
+
+                <p>
+                    📅 <strong>{{ date }}</strong>
+                </p>
+
+                <p>
+                    ⏰ <strong>{{ time }}</strong>
+                </p>
+
+                <p>
+                    📍 <strong>{{ place }}</strong>
+                </p>
+
+            </div>
+
+            <p class="final-message">
+
+                Some birthdays deserve more than
+                just a "Happy Birthday."
+
+                <br><br>
+
+                So here's to good food,
+                good conversations,
+                and a little memory
+                worth keeping. ❤️
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    {% else %}
+
+    <!-- Lunch selection -->
+
+    <div class="lunch-wrapper">
+
+        <div class="lunch-card">
+
+            <p class="little-text">
+                ✦ One tiny birthday request ✦
+            </p>
+
+            <div class="card-heart">
+                ♥
+            </div>
+
+            <h1>
+                So...
+                <br>
+                <span>Lunch with me?</span> ❤️
+            </h1>
+
+            <p class="question-text">
+
+                Since it's your birthday,
+                you get to choose.
+
+                <br>
+
+                Tell me when & where,
+                and I'll be there. ✨
+
+            </p>
+
+
+            <form method="POST">
+
+                <div class="input-group">
+
+                    <label>
+                        📅 Pick a day
+                    </label>
+
+                    <input
+                        type="date"
+                        name="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        ⏰ Pick a time
+                    </label>
+
+                    <input
+                        type="time"
+                        name="time"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        📍 Pick a place
+                    </label>
+
+                    <select name="place" required>
+
+                        <option value="">
+                            Choose your place...
+                        </option>
+
+                        <option value="Skygarden Rooftop">
+                            🌃 Skygarden Rooftop
+                        </option>
+
+                        <option value="Olive Beach">
+                            🌿 Olive Beach
+                        </option>
+
+                        <option value="The Yard">
+                            ✨ The Yard
+                        </option>
+
+                        <option value="Maize and Malt">
+                            🍺 Maize and Malt
+                        </option>
+
+                        <option value="Halen's Place">
+                            💕 Halen's Place
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit">
+
+                    Confirm our lunch ❤️
+
+                </button>
+
+            </form>
+
+
+            <p class="bottom-note">
+                 I hope today brings you nothing but 
+                 great food, plenty of drinks, and 
+                 the celebration you deserve ❤️.
+                 Cheers to another year of crushing it!
+                 <b>LOVE YOU..❤️</b>
+            </p>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

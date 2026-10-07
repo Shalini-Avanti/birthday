@@ -1,0 +1,1000 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* =========================
+   BIRTHDAY PAGE
+========================= */
+
+.birthday-page {
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 80, 100, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 0, 60, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #17070d,
+            #300914,
+            #120408
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    min-height: 100vh;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+/* Glow */
+
+.glow {
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.25;
+
+    animation: glowMove 8s infinite alternate ease-in-out;
+}
+
+.glow-one {
+
+    background: #ff1744;
+
+    top: -100px;
+    left: -100px;
+}
+
+.glow-two {
+
+    background: #ff4569;
+
+    right: -100px;
+    bottom: -100px;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes glowMove {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.4);
+    }
+
+}
+
+
+/* Main birthday content */
+
+.birthday-content {
+
+    text-align: center;
+
+    width: min(90%, 750px);
+
+    position: relative;
+
+    z-index: 5;
+
+    animation: appear 2s ease forwards;
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.little-text {
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    color: #e9a1ac;
+
+    margin-bottom: 25px;
+}
+
+
+.birthday-content h1 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(55px, 9vw, 105px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+
+    letter-spacing: -2px;
+
+}
+
+
+.birthday-content h1 span {
+
+    display: block;
+
+    color: #ff526f;
+
+    text-shadow:
+        0 0 20px rgba(255, 60, 90, 0.5);
+
+}
+
+
+.divider {
+
+    margin: 35px 0;
+
+    color: #ff526f;
+
+    font-size: 25px;
+
+    animation: heartbeat 2s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+}
+
+
+.birthday-message {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    color: #e9cdd2;
+
+    line-height: 1.9;
+
+    font-size: 15px;
+
+    font-weight: 300;
+}
+
+
+.secret-message {
+
+    margin-top: 30px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
+    color: #fff;
+
+    line-height: 1.5;
+}
+
+
+.instruction {
+
+    margin-top: 45px;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: #d99aa5;
+}
+
+
+.pulse-dot {
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    background: #ff4564;
+
+    border-radius: 50%;
+
+    margin: 0 8px;
+
+    animation: blink 1.5s infinite;
+}
+
+
+@keyframes blink {
+
+    0%, 100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+.hearts-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+.heart {
+
+    position: absolute;
+
+    color: #ff345b;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    text-shadow:
+        0 0 8px rgba(255, 30, 70, 0.8);
+
+    animation:
+        floatHeart
+        var(--speed)
+        ease-in-out
+        infinite,
+        heartBlink
+        2s
+        ease-in-out
+        infinite;
+
+    transition: 0.3s;
+
+    font-size: var(--size);
+}
+
+
+.heart:hover {
+
+    color: #ff9baa;
+
+    transform: scale(1.8);
+
+    text-shadow:
+        0 0 25px #ff1744;
+}
+
+
+.heart-1 {
+    --size: 17px;
+    --speed: 6s;
+    left: 10%;
+    top: 20%;
+}
+
+.heart-2 {
+    --size: 12px;
+    --speed: 8s;
+    left: 20%;
+    top: 75%;
+}
+
+.heart-3 {
+    --size: 22px;
+    --speed: 7s;
+    left: 32%;
+    top: 12%;
+}
+
+.heart-4 {
+    --size: 14px;
+    --speed: 9s;
+    left: 43%;
+    top: 82%;
+}
+
+.heart-5 {
+    --size: 19px;
+    --speed: 6s;
+    left: 56%;
+    top: 18%;
+}
+
+.heart-6 {
+    --size: 13px;
+    --speed: 8s;
+    left: 68%;
+    top: 73%;
+}
+
+.heart-7 {
+    --size: 24px;
+    --speed: 7s;
+    left: 80%;
+    top: 25%;
+}
+
+.heart-8 {
+    --size: 15px;
+    --speed: 9s;
+    left: 90%;
+    top: 60%;
+}
+
+.heart-9 {
+    --size: 11px;
+    --speed: 7s;
+    left: 15%;
+    top: 45%;
+}
+
+.heart-10 {
+    --size: 18px;
+    --speed: 8s;
+    left: 27%;
+    top: 60%;
+}
+
+.heart-11 {
+    --size: 13px;
+    --speed: 6s;
+    left: 73%;
+    top: 50%;
+}
+
+.heart-12 {
+    --size: 21px;
+    --speed: 9s;
+    left: 84%;
+    top: 82%;
+}
+
+.heart-13 {
+    --size: 12px;
+    --speed: 7s;
+    left: 5%;
+    top: 60%;
+}
+
+.heart-14 {
+    --size: 16px;
+    --speed: 8s;
+    left: 93%;
+    top: 15%;
+}
+
+.heart-15 {
+    --size: 10px;
+    --speed: 6s;
+    left: 48%;
+    top: 8%;
+}
+
+
+@keyframes floatHeart {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+
+}
+
+
+@keyframes heartBlink {
+
+    0%, 100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   LUNCH PAGE
+========================= */
+
+.lunch-page {
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 50, 90, 0.2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(180, 20, 60, 0.2),
+            transparent 30%
+        ),
+        #120408;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+    min-height: 100vh;
+}
+
+
+.lunch-wrapper {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    animation: cardAppear 1.3s ease forwards;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+.lunch-card {
+
+    padding: 45px 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+
+        1px solid rgba(
+            255,
+            160,
+            175,
+            0.2
+        );
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.5),
+
+        inset 0 1px 0
+        rgba(255,255,255,0.1);
+
+    text-align: center;
+}
+
+
+.card-heart {
+
+    font-size: 45px;
+
+    color: #ff4567;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.8s infinite;
+
+    text-shadow:
+        0 0 25px rgba(255, 50, 90, 0.7);
+}
+
+
+.lunch-card h1 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 48px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+
+.lunch-card h1 span {
+
+    color: #ff6c84;
+}
+
+
+.question-text {
+
+    color: #d9bfc4;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    margin-bottom: 35px;
+}
+
+
+/* Inputs */
+
+.input-group {
+
+    text-align: left;
+
+    margin-bottom: 20px;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #dca5af;
+
+    margin-bottom: 8px;
+}
+
+
+.input-group input,
+.input-group select {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255, 130, 150, 0.25);
+
+    background:
+        rgba(0,0,0,0.25);
+
+    color: white;
+
+    font-family: 'Montserrat';
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+
+    border-color: #ff5572;
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 50, 90, 0.2);
+}
+
+
+.input-group select option {
+
+    background: #280a13;
+
+    color: white;
+}
+
+
+/* Button */
+
+button {
+
+    width: 100%;
+
+    border: none;
+
+    padding: 17px;
+
+    margin-top: 10px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3158,
+            #d71945
+        );
+
+    color: white;
+
+    font-family: 'Montserrat';
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 30, 70, 0.25);
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255, 30, 70, 0.45);
+}
+
+
+.bottom-note {
+
+    margin-top: 25px;
+
+    color: #8e6870;
+
+    font-size: 10px;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.floating-hearts span {
+
+    position: absolute;
+
+    color: #ff345b;
+
+    opacity: 0.2;
+
+    font-size: 20px;
+
+    animation:
+        floating 10s
+        linear
+        infinite;
+}
+
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 35%;
+    animation-delay: 4s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 65%;
+    animation-delay: 3s;
+}
+
+.floating-hearts span:nth-child(6) {
+    left: 75%;
+    animation-delay: 5s;
+}
+
+.floating-hearts span:nth-child(7) {
+    left: 88%;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(8) {
+    left: 95%;
+    animation-delay: 6s;
+}
+
+
+@keyframes floating {
+
+    from {
+
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-10vh)
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================
+   CONFIRMATION
+========================= */
+
+.confirmation {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    text-align: center;
+
+    animation:
+        cardAppear
+        1.5s
+        ease;
+}
+
+
+.confirmation-card {
+
+    padding: 50px 35px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid
+        rgba(255,150,170,0.2);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.5);
+}
+
+
+.big-heart {
+
+    color: #ff4567;
+
+    font-size: 75px;
+
+    animation:
+        heartbeat
+        1.5s
+        infinite;
+
+    text-shadow:
+        0 0 30px
+        rgba(255,50,90,0.7);
+}
+
+
+.small-heading {
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    color: #d89da7;
+
+    font-size: 11px;
+
+    margin: 20px 0;
+}
+
+
+.confirmation-card h1 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 50px;
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+.confirmation-card h1 span {
+
+    display: block;
+
+    color: #ff6680;
+
+    margin-top: 10px;
+}
+
+
+.date-details {
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,0.2);
+
+    line-height: 2;
+
+    color: #d9bec4;
+}
+
+
+.date-details strong {
+
+    color: white;
+}
+
+
+.final-message {
+
+    color: #cdb3b8;
+
+    line-height: 1.8;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 19px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .birthday-content h1 {
+
+        font-size: 65px;
+
+    }
+
+    .birthday-message {
+
+        font-size: 13px;
+
+    }
+
+    .lunch-card {
+
+        padding: 35px 25px;
+
+    }
+
+    .lunch-card h1 {
+
+        font-size: 42px;
+
+    }
+
+    .confirmation-card h1 {
+
+        font-size: 40px;
+
+    }
+
+}
